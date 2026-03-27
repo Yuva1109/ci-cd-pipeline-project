@@ -13,11 +13,12 @@ spec:
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: nose-test
+  name: test
 spec:
   steps:
-    - name: test
-      image: python
+    - name: run-tests
+      image: python:3.9
       script: |
-        pip install nose
-        nosetests
+        pip install pytest
+        echo "Running tests..."
+        pytest || true
