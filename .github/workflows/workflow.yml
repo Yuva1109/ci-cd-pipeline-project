@@ -16,12 +16,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install flake8 pytest
+          pip install flake8 nose
 
       - name: Lint with flake8
         run: |
-          flake8 . || true
+          flake8 .
 
-      - name: Run tests
+      - name: Run unit tests
         run: |
-          pytest
+          nosetests
